@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/tasks/style.css' %}">
+    <title>Stud.Task -- {{request.user.username}} -- create task</title>
+{% endblock %}
+
+{% block main %}
+    <form method="post">{% csrf_token %}
+        {{ form.as_p }}
+        {{ file_form.as_p }}
+        <input type="submit" value="Выложить">
+    </form>
+{% endblock %}

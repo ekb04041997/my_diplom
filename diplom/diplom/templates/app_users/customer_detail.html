@@ -1,0 +1,130 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/user_detail/customer_style.css' %}">
+    <title>Stud.Task          Customer detail [{{ object.username }}]</title>
+{% endblock %}
+
+{% block main %}
+    <main class="main">
+    <div class="container">
+      <div class="main__content-info info flex">
+        <div class="info__user content">
+          <div class="content__photo">
+            <p class="photo">
+              {% if object.profilecustomermodel.profile_img %}
+                <img src="{{ object.profilecustomermodel.profile_img.url}}" alt="{{ object.username }}" width="150px" height="200px">
+              {% else %}
+                <img src="https://kapstr.admin-smolensk.ru/files/79/no_profile_picture.gif" width="150px" height="200px" alt="#">
+              {% endif %}
+            </p>
+            <p class="username">
+              {{ object.username }}
+            </p>
+          </div>
+          <p class="content__tags">
+            Используемые теги: #
+          </p>
+        </div>
+        <div class="info__ptofile information">
+          <div class="information__basic user">
+            <h2 class="title user__title">
+              Основная информация
+            </h2>
+            <div class="user__name flex user-content">
+              <p class="left-column">
+                Имя:
+              </p>
+              <p class="name right-column">
+                {{ object.first_name }}
+              </p>
+            </div>
+            <div class="user__lastname flex user-content">
+              <p class="left-column">
+                Фамилия:
+              </p>
+              <p class="lastname right-column">
+                {{ object.last_name }}
+              </p>
+            </div>
+            <div class="user__birth flex user-content">
+              <p class="left-column">
+                Организация:
+              </p>
+              <p class="birth right-column">
+                {{ object.profilecustomermodel.company }}
+              </p>
+            </div>
+          </div>
+          <div class="information__contact user">
+            <h2 class="title user__title">
+              Контактная информация
+            </h2>
+            <div class="user__tel flex user-content">
+              <p class="left-column">
+                Номер телефона:
+              </p>
+              <p class="tel right-column">
+                {{ object.profilecustomermodel.phone }}
+              </p>
+            </div>
+            <div class="user__email flex user-content">
+              <p class="left-column">
+                Email:
+              </p>
+              <p class="email right-column">
+                {{ object.email }}
+              </p>
+            </div>
+            <div class="user__city flex user-content">
+              <p class="left-column">
+                Город:
+              </p>
+              <p class="city right-column">
+                {{ object.profilecustomermodel.city }}
+              </p>
+            </div>
+          </div>
+          <div class="inf__btn">
+            <button class="info__user-btn btn-reset">
+              <a href="{% url 'customer-edit' object.id %}">Редактировать профиль</a>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="main__content-tasks tasks">
+        <h2 class="tasks__title title">
+          Последние выложенные задания
+        </h2>
+        <div class="tasks__text flex">
+          <p class="tasks__block-tegs descr">
+            Теги
+          </p>
+          <p class="tasks__block-task descr">
+            Задание
+          </p>
+        </div>
+
+        {% for _ in '12345a'%}
+          <div class="tasks__block flex">
+            <div class="tasks__block-tegs">
+              #оченьнадо
+            </div>
+            <div class="tasks__block-task">
+              НАПИСАТЬ ДИПЛОМ
+            </div>
+          </div>
+        {% endfor %}
+        <form class="inf__btn">
+          <input type="hidden" name="#" value="#">
+          <button class="info__user-btn btn-reset">
+            Посмотреть все
+          </button>
+        </form>
+      </div>
+
+    </div>
+  </main>
+{% endblock %}

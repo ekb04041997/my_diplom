@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/register/style.css' %}">
+    <script src="{% static 'js/script.js' %}" ></script>
+    <title>Stud.Task          Регистрация</title>
+{% endblock %}
+
+{% block main %}
+    <main class="main">
+        <div class="container">
+            <div class="main__container">
+                <div class="block__student">
+                    <div class="student__button-block student flex">
+                        <div class="student__button1">
+                         <p class="btn-block">
+                            Студент
+                         </p>
+                        </div>
+                        <div class="customer__button1">
+                            <p class="btn-block">
+                                Работодатель
+                            </p>
+                        </div>
+                    </div>
+                    <form method="post" class="main__form1"> {% csrf_token %}
+                        <div class="input-form flex">
+                            <div class="form__block left flex">
+                                <input type="text" name="username" placeholder="Username" required>
+                                <input type="text" name="first_name" placeholder="First name" required>
+                                <input type="password" name="password1" placeholder="Password" required>
+                            </div>
+                            <div class="form__block right flex">
+                                <input type="hidden" name="profile_status" value="co">
+                                <input type="email" name="email" placeholder="Email" required>
+                                <input type="text" name="last_name" placeholder="Last name" required>
+                                <input type="password" name="password2" placeholder="Password" required>
+                            </div>
+                        </div>
+                        <div class="form__text">
+                            <ul class="form__text-item">
+                                <li class="form__text-list">
+                                    Ваш пароль должен содержать не менее 8 символов.
+                                </li>
+                                <li class="form__text-list">
+                                    Ваш пароль не может быть полностью числовым
+                                </li>
+                            </ul>
+                            <div class="btn__registration">
+                                <input type="submit" value="Регистирация">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="block__customer block__noactive">
+                    <div class="customer__button-block customer flex">
+                        <div class="student__button2">
+                            <p class="btn-block">
+                                Студент
+                            </p>
+                        </div>
+                        <div class="customer__button2">
+                            <p class="btn-block">
+                                Работодатель
+                            </p>
+                        </div>
+                    </div>
+                    <form method="post" class="main__form2"> {% csrf_token %}
+                        <div class="input-form flex">
+                            <div class="form__block left flex">
+                                <input type="text" name="username" placeholder="Username" required>
+                                <input type="text" name="first_name" placeholder="First name" required>
+                                <input type="text" name="company" placeholder="Company" required>
+                                <input type="password" name="password1" placeholder="Password" required>
+                            </div>
+                            <div class="form__block right flex">
+                                <input type="hidden" name="profile_status" value="cu">
+                                <input type="email" name="email" placeholder="Email" required>
+                                <input type="text" name="last_name" placeholder="Last name" required>
+                                <p class="hidden_input"></p>
+                                <input type="password" name="password2" placeholder="Password" required>
+                            </div>
+                        </div>
+                        <div class="form__text">
+                            <ul class="form__text-item">
+                                <li class="form__text-list">
+                                    Ваш пароль должен содержать не менее 8 символов.
+                                </li>
+                                <li class="form__text-list">
+                                    Ваш пароль не может быть полностью числовым
+                                </li>
+                            </ul>
+                            <div class="btn__registration">
+                                <input type="submit" value="Регистирация">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock %}

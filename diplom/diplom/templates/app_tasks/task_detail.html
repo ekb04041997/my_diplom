@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/tasks/style.css' %}">
+    <title>Stud.Task {{ object.title|truncatechars:15}} -- detail task</title>
+{% endblock %}
+
+{% block main %}
+    <p>{{ object.title }}</p>
+    <p>{{ object.content }}</p>
+    <p>{{ object.user }}</p>
+    <p>{{ object.pub_date }}</p>
+    <p>{{ object.tags.all }}</p>
+    <a href="media/{{ object.files }}">{{ object.files.name|cut:'task_files/' }}</a >
+{% endblock %}

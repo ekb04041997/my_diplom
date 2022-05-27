@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/homepage/style.css' %}">
+    <title>Stud.Task</title>
+{% endblock %}
+
+{% block main %}
+    <main class="main">
+    <div class="container">
+      <div class="main__container main-content flex">
+        <div class="main-content__left tasks">
+          <div class="tasks__title">
+            Новые задания
+          </div>
+          {% for _ in '1234567891' %}
+          <div class="tasks__block flex">
+            <div class="tasks__block-left">
+              Время Имя
+            </div>
+            <div class="tasks__block-middle">
+              Продам гараж
+            </div>
+            <div class="tasks__block-right">
+              ООО дави на газ
+            </div>
+          </div>
+          {% endfor %}
+          <div class="inf__btn">
+            <button class="info__user-btn btn-reset"><a href="{% url 'tasks' %}">Посмотреть все</a></button>
+          </div>
+
+        </div>
+        <div class="main-content__right top">
+          <div class="top__top content-right">
+            <div class="content-right__title">
+              Топ студентов
+            </div>
+            <div class="content-right__descr descr flex">
+              <div class="descr__rating">
+                Рейтинг
+              </div>
+              <div class="descr__points">
+                Баллы
+              </div>
+              <div class="descr__name">
+                Имя
+              </div>
+            </div>
+              {% for i in num %}
+                <div class="content-right__block block flex">
+                  <div class="block__rating">
+                      {{ i }}
+                  </div>
+                  <div class="block__points">
+                    75
+                  </div>
+                  <div class="block__name">
+                    Username
+                  </div>
+                </div>
+              {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+{% endblock %}

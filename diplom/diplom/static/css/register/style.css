@@ -1,0 +1,179 @@
+/* main */
+/* contractor */
+
+.main {
+  margin-bottom: 50px;
+}
+
+.block__student {
+  background-color: var(--color-white);
+  border-radius: 15px;
+  padding: 15px;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+.student__button-block {
+  align-items: baseline;
+}
+
+.student__button1 {
+  background-color: var(--color-gray);
+  padding: 15px 0;
+  border-radius: 5px 5px 0 0;
+  width: 50%;
+  position: relative;
+}
+
+.student__button1 .btn-block::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.customer__button1 {
+  width: 50%;
+  position: relative;
+  line-height: 50px;
+}
+
+.customer__button1 .btn-block::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.main__form1 {
+  padding: 15px;
+  background-color: var(--color-gray);
+  border-radius: 0 5px 5px 5px;
+}
+
+.form__block {
+  flex-direction: column;
+}
+
+.form__block input {
+  max-width: 170px;
+  border-radius: 5px;
+}
+
+.form__block input::placeholder {
+  font-size: 12px;
+}
+
+.form__block input:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.form__block.left {
+  margin-right: 20px;
+}
+
+/* customer */
+
+.block__noactive {
+  display: none;
+}
+
+.block__customer {
+  background-color: var(--color-white);
+  border-radius: 15px;
+  padding: 15px;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+.customer__button-block {
+  align-items: baseline;
+}
+
+.btn-block {
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 5px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.student__button2 {
+ width: 50%;
+}
+
+.customer__button2 {
+  background-color: var(--color-gray);
+  padding: 15px 0;
+  border-radius: 5px 5px 0 0;
+  width: 50%;
+}
+
+.main__form2 {
+  padding: 15px;
+  background-color: var(--color-gray);
+  border-radius: 5px 0 5px 5px;
+}
+
+.input-form {
+  margin-bottom: 5px;
+}
+
+.form__block {
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.form__block input {
+  max-width: 170px;
+  border-radius: 5px;
+  height: 25px;
+}
+
+.form__block input::placeholder {
+  font-size: 12px;
+}
+
+.form__block input:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.form__block.left {
+  margin-right: 20px;
+}
+
+p {
+    margin: 0;
+    margin-bottom: 50px;
+}
+
+.form__text-item {
+  margin: 0;
+  padding-left: 20px;
+  margin-bottom: 15px;
+}
+
+.form__text-list {
+  font-size: 12px;
+}
+
+.btn__registration {
+  display: block;
+  text-align: center;
+}
+
+.btn__registration input {
+  background-color: #fff;
+  padding: 5px 30px;
+  border-radius: 5px;
+  color: #333;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 27px;
+}

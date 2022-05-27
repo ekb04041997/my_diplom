@@ -1,0 +1,96 @@
+/* main */
+
+.main {
+  margin-bottom: 50px;
+}
+
+.main__container {
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.main__tags {
+  background-color: var(--color-white);
+  padding: 15px;
+  border-radius: 15px;
+  width: 30%;
+  margin-right: 50px;
+}
+
+.tags__title {
+  margin: 0;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.tags__all {
+  margin-bottom: 20px;
+}
+
+.tags__all a {
+  display: block;
+}
+
+.tags__btn {
+  text-align: center;
+}
+
+.tags__btn .button {
+  background-color: var(--color-gray);
+  padding: 5px 30px;
+  border-radius: 5px;
+  color: var(--color-black);
+  font-style: normal;
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 27px;
+  text-decoration: none;
+}
+
+.main__tasks {
+  width: 70%;
+  background-color: var(--color-gray);
+  border-radius: 15px;
+  padding: 20px;
+}
+
+.tasks__title {
+  text-align: center;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 35px;
+  line-height: 43px;
+  margin-bottom: 20px;
+}
+
+.tasks__block {
+  align-items: center;
+  border-radius: 5px;
+  min-height: 60px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 24px;
+  background-color: var(--color-white);
+}
+
+.tasks__block:not(:last-child) {
+  margin-bottom: 15px;
+}
+
+.tasks__block-left {
+  width: 20%;
+  padding-left: 7px;
+}
+
+.tasks__block-middle {
+  width: 60%;
+  border-right: 1px solid #333;
+  border-left: 1px solid #333;
+  padding-left: 7px;
+}
+
+.tasks__block-right {
+  width: 20%;
+  padding-left: 7px;
+}

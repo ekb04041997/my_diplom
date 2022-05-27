@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/tasks/style.css' %}">
+    <title>Stud.Task Tasks</title>
+{% endblock %}
+
+{% block main %}
+<main class="main">
+    <div class="container">
+      <div class="main__container flex">
+        <div class="main__tags tags">
+          <h2 class="tags__title title">
+            Теги
+          </h2>
+          <div class="tags__all">
+            {% for tag in tags %}
+              <a href="#">{{ tag }}</a>
+            {% endfor %}
+          </div>
+          <div class="tags__btn">
+            <a class="button" href="#">Сбросить теги</a>
+          </div>
+        </div>
+        <div class="main__tasks tasks">
+          <div class="tasks__title title">
+            Все задания
+          </div>
+
+          {% for _ in '1234567890' %}
+          <div class="tasks__block flex">
+            <div class="tasks__block-left">
+              Время Имя
+            </div>
+            <div class="tasks__block-middle">
+              Продам гараж
+            </div>
+            <div class="tasks__block-right">
+              ООО дави на газ
+            </div>
+          </div>
+          {% endfor %}
+
+          </div>
+        </div>
+      </div>
+  </main>
+{% endblock %}

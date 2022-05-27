@@ -1,0 +1,168 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/user_detail/contractor_style.css' %}">
+    <title>Stud.Task          Contractor detail [{{ object.username }}]</title>
+{% endblock %}
+
+{% block main %}
+      <main class="main">
+    <div class="container">
+      <div class="main__content-info info flex">
+        <div class="info__user content">
+          <div class="content__photo">
+            <p class="photo">
+              {% if object.profilecontractormodel.profile_img %}
+                <img src="{{ object.profilecontractormodel.profile_img.url}}" alt="{{ object.username }}" width="150px" height="200px">
+              {% else %}
+                <img src="https://kapstr.admin-smolensk.ru/files/79/no_profile_picture.gif" width="150px" height="200px" alt="#">
+              {% endif %}
+            </p>
+            <p class="username">
+              {{ object.username }}
+            </p>
+          </div>
+          <p class="content__rating">
+            Рейтинг: 4.75
+          </p>
+          <p class="content__tags">
+            Используемые теги: #
+          </p>
+        </div>
+        <div class="info__ptofile information">
+          <div class="information__basic user">
+            <h2 class="title user__title">
+              Основная информация
+            </h2>
+            <div class="user__name flex user-content">
+              <p class="left-column">
+                Имя:
+              </p>
+              <p class="name right-column">
+                {{ object.first_name }}
+              </p>
+            </div>
+            <div class="user__lastname flex user-content">
+              <p class="left-column">
+                Фамилия:
+              </p>
+              <p class="lastname right-column">
+                {{ object.last_name }}
+              </p>
+            </div>
+            <div class="user__birth flex user-content">
+              <p class="left-column">
+                Дата рождения:
+              </p>
+              <p class="birth right-column">
+                {{ object.profilecontractormodel.birth_day }}
+              </p>
+            </div>
+          </div>
+          <div class="information__contact user">
+            <h2 class="title user__title">
+              Контактная информация
+            </h2>
+            <div class="user__tel flex user-content">
+              <p class="left-column">
+                Номер телефона:
+              </p>
+              <p class="tel right-column">
+                {{ object.profilecontractormodel.phone }}
+              </p>
+            </div>
+            <div class="user__email flex user-content">
+              <p class="left-column">
+                Email:
+              </p>
+              <p class="email right-column">
+                {{ object.email }}
+              </p>
+            </div>
+            <div class="user__city flex user-content">
+              <p class="left-column">
+                Город:
+              </p>
+              <p class="city right-column">
+                {{ object.profilecontractormodel.city }}
+              </p>
+            </div>
+          </div>
+          <div class="information__education user">
+            <h2 class="title user__title">
+              Образование
+            </h2>
+            <div class="user__institute flex user-content">
+              <p class="left-column">
+                Институт:
+              </p>
+              <p class="institute right-column">
+                {{ object.profilecontractormodel.university }}
+              </p>
+            </div>
+            <div class="user__faculty flex user-content">
+              <p class="left-column">
+                Факультет:
+              </p>
+              <p class="faculty">
+                {{ object.profilecontractormodel.faculty }}
+              </p>
+            </div>
+            <div class="user__specialization flex user-content">
+              <p class="left-column">
+                Специальность:
+              </p>
+              <p class="specialization">
+                {{ object.profilecontractormodel.specialization }}
+              </p>
+            </div>
+          </div>
+          {% if object.id == request.user.id%}
+
+          <div class="inf__btn">
+            <button class="info__user-btn btn-reset">
+              <a href="{% url 'contractor-edit' object.id %}">Редактировать профиль</a>
+            </button>
+          </div>
+
+          {% endif %}
+        </div>
+      </div>
+      <div class="main__content-tasks tasks">
+        <h2 class="tasks__title title">
+          Последние выполненные задания
+        </h2>
+        <div class="tasks__text flex">
+          <p class="tasks__block-tegs descr">
+            Теги
+          </p>
+          <p class="tasks__block-task descr">
+            Задание
+          </p>
+          <p class="tasks__block-point descr">
+            Е-Баллы
+          </p>
+        </div>
+        {% for _ in '12345' %}
+        <div class="tasks__block flex">
+          <div class="tasks__block-tegs">
+            #оченьнадо
+          </div>
+          <div class="tasks__block-task">
+            НАПИСАТЬ ДИПЛОМ
+          </div>
+          <div class="tasks__block-point">
+            10
+          </div>
+        </div>
+        {% endfor %}
+        <div class="inf__btn">
+          <button class="info__user-btn btn-reset">
+            Посмотреть все
+          </button>
+        </div>
+      </div>
+    </div>
+  </main>
+{% endblock %}
