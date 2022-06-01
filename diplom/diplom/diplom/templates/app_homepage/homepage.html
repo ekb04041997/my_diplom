@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/homepage/style.css' %}">
+    <title>Stud.Task</title>
+{% endblock %}
+
+{% block main %}
+    <main class="main">
+    <div class="container">
+      <div class="main__container main-content flex">
+        <div class="main-content__left tasks">
+          <div class="tasks__title">
+            Новые задания
+          </div>
+          {% for task in tasks|slice:10 %}
+          <div class="tasks__block">
+            <div class=" flex">
+              <div class="tasks__block-left">
+                <div>{{ task.pub_date|date:"G:i" }}</div>
+                <div>{{ task.pub_date|date:"d/m/y" }}</div>
+              </div>
+              <div class="tasks__block-middle">
+                <a href="{% url 'task_detail' pk=task.id %}">{{ task.title }}</a>
+              </div>
+              <div class="tasks__block-right">
+                <a href="{% url 'customer-detail' task.user.id %}">{{ task.user.profilecustomermodel.company }}</a>
+              </div>
+            </div>
+            <div class="bottom_tags">
+              Тэги:
+              {% for tag in task.tags.all %}
+                {{ tag }}&nbsp&nbsp
+              {% endfor %}
+            </div>
+          </div>
+          {% endfor %}
+          <div class="inf__btn">
+            <button class="info__user-btn btn-reset"><a href="{% url 'tasks' %}">Посмотреть все</a></button>
+          </div>
+
+        </div>
+        <div class="main-content__right top">
+          <div class="top__top content-right">
+            <div class="content-right__title">
+              Топ студентов
+            </div>
+            <div class="content-right__descr descr flex">
+              <div class="descr__rating">
+                Рейтинг
+              </div>
+              <div class="descr__points">
+                Баллы
+              </div>
+              <div class="descr__name">
+                Имя
+              </div>
+            </div>
+              {% for i in '1234567890' %}
+                <div class="content-right__block block flex">
+                  <div class="block__rating">
+                      {{ i }}
+                  </div>
+                  <div class="block__points">
+                    75
+                  </div>
+                  <div class="block__name">
+                    Username
+                  </div>
+                </div>
+              {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+{% endblock %}

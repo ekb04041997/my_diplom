@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/entrance/style.css' %}">
+    <title>Stud.Task          Вход</title>
+{% endblock %}
+
+{% block main %}
+    <main class="main">
+        <div class="container">
+            <div class="main__container">
+                <div class="main__content">
+                    <h2 class="main__title title">
+                        Вход в учетную запись
+                    </h2>
+                    <form method="post" class="form">{% csrf_token %}
+                        <div class="inputs flex">
+                            <input class="form__input" type="text" name="username" placeholder="Логин" required>
+                            <input class="form__input" type="password" name="password" placeholder="Пароль" required>
+                        </div>
+                        <div class="form__button">
+                            <button type="submit" class="form__btn btn-reset">
+                                Войти
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock %}

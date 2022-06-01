@@ -1,0 +1,32 @@
+{% if page_obj.has_other_pages %}
+<nav>
+    <ul class="num_list flex">
+
+        {% for p in page_obj.paginator.page_range %}
+
+        {% if p == 1 and page_obj.number > 3 %}
+            <li class="num_item">
+                <a href="?page={{ p }}">{{ p }}</a>
+            </li>
+            {% if page_obj.number > 4 %}
+                <li class="active_page">...</li>
+            {% endif %}
+        {% elif p == page_obj.paginator.num_pages and page_obj.number < page_obj.paginator.num_pages|add:-3 %}
+            {% if page_obj.number < page_obj.paginator.num_pages|add:-4%}
+                <li class="active_page">...</li>
+            {% endif %}
+            <li class="num_item">
+                <a href="?page={{ p }}">{{ p }}</a>
+            </li>
+
+        {% elif p == page_obj.number %}
+            <li class="active_page">{{ p }}</li>
+        {% elif p >= page_obj.number|add:-2 and p <= page_obj.number|add:2%}
+            <li class="num_item">
+                <a href="?page={{ p }}">{{ p }}</a>
+            </li>
+        {% endif %}
+        {% endfor %}
+    </ul>
+</nav>
+{% endif %}

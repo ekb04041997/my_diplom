@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/tasks/style.css' %}">
+    <title>Stud.Task {{ object.title|truncatechars:15}} -- detail task</title>
+{% endblock %}
+
+{% block main %}
+    <p>{{ object.title }}</p>
+    <p>{{ object.content }}</p>
+    <p>{{ object.user }}</p>
+    <p>{{ object.pub_date|date:"d/m/y G:i" }}</p>
+    <p>
+        {% for tag in object.tags.all %}
+            {{ tag }}
+        {% endfor %}
+    </p>
+    {% if object.files %}
+    <a href="{{ object.files.url }}" download >{{ object.files.name|cut:'task_files/' }}  Скачать</a >
+    {% endif %}
+{% endblock %}

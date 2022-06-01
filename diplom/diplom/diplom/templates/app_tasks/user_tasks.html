@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/tasks/style.css' %}">
+    <title>Stud.Task Tasks</title>
+{% endblock %}
+
+{% block main %}
+<main class="main">
+    <div class="container">
+      <div class="title_company">
+      {% if user_info.profilecustomermodel.company %}
+        <div class="company">
+          <h1>{{ user_info.profilecustomermodel.company }}</h1>
+        </div>
+      {% endif %}
+      </div>
+      <div class="main__container flex">
+        <div class="main__tags tags">
+          <h2 class="tags__title title">
+            Теги
+          </h2>
+          <div class="tags__all">
+            {% for i_tag in tags %}
+              <a href="{% url 'user_tag_detail' user_id=user_info.id pk=i_tag.id %}">{{ i_tag }}</a>
+            {% endfor %}
+          </div>
+          <div class="tags__btn">
+            <a class="button" href="{% url 'user_tasks' user_id=user_info.id %}">Сбросить тег</a>
+          </div>
+        </div>
+        <div class="main__tasks tasks">
+          <div class="tasks__title title">
+            {% if tag %}
+                Задания по '{{ tag|upper }}'
+            {% else %}
+                Все задания
+            {% endif %}
+          </div>
+          {% if not page_obj %}
+            <div class="tasks__block">Заданий с таким тегом еще нет</div>
+          {% else %}
+            {% for task in page_obj %}
+            <div class="tasks__block">
+              <div class=" flex">
+                <div class="tasks__block-left">
+                  <div>{{ task.pub_date|date:"G:i" }}</div>
+                  <div>{{ task.pub_date|date:"d/m/y" }}</div>
+                </div>
+                <div class="tasks__block-middle">
+                  <a href="{% url 'task_detail' pk=task.id %}">{{ task.title }}</a>
+                </div>
+                <div class="tasks__block-right">
+                  <a href="{% url 'customer-detail' task.user.id %}">{{ task.user.profilecustomermodel.company }}</a>
+                </div>
+              </div>
+              <div class="bottom_tags">
+                Тэги:
+                {% for tag in task.tags.all %}
+                  {{ tag }}&nbsp&nbsp
+                {% endfor %}
+              </div>
+            </div>
+            {% endfor %}
+            {% include 'navigation.html' %}
+          {% endif %}
+
+          </div>
+        </div>
+      </div>
+  </main>
+{% endblock %}

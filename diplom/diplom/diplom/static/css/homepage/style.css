@@ -1,0 +1,150 @@
+/* main */
+
+.main {
+  margin-bottom: 50px;
+}
+
+.main-content {
+  justify-content: space-between;
+}
+
+.main-content__left {
+  width: 70%;
+  background-color: var(--color-gray);
+  border-radius: 15px;
+  padding: 20px;
+  margin-right: 50px;
+}
+
+.tasks__title {
+  text-align: center;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 35px;
+  line-height: 43px;
+  margin-bottom: 20px;
+}
+
+.tasks__block {
+  align-items: center;
+  border-radius: 5px;
+  min-height: 60px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 24px;
+  background-color: var(--color-white);
+}
+
+.tasks__block:not(:last-child) {
+  margin-bottom: 15px;
+}
+
+.tasks__block-left {
+  width: 20%;
+  padding-left: 7px;
+}
+
+.tasks__block-middle {
+  width: 60%;
+  border-right: 1px solid #333;
+  border-left: 1px solid #333;
+  padding-left: 7px;
+}
+
+.tasks__block-right {
+  width: 20%;
+  padding-left: 7px;
+}
+
+.main-content__right {
+  width: 25%;
+}
+
+.content-right {
+  background-color: var(--color-white);
+  border-radius: 15px;
+  padding: 10px;
+}
+
+.content-right:not(:last-child) {
+  margin-bottom: 50px;
+}
+
+.content-right__title {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 30px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.content-right__descr {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 12px;
+  border-bottom: 1px solid rgb(150, 150, 150);
+}
+
+.descr__rating {
+  width: 25%;
+  text-align: center;
+}
+
+.descr__points {
+  width: 25%;
+  text-align: center;
+}
+
+.descr__name {
+  width: 50%;
+  text-align: center;
+}
+
+.content-right__block {
+  border-bottom: 1px solid rgb(150, 150, 150);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 25px;
+}
+
+.block__rating {
+  width: 25%;
+  text-align: center;
+}
+
+.block__points {
+  width: 25%;
+  text-align: center;
+}
+
+.block__name {
+  width: 50%;
+  text-align: center;
+}
+
+.inf__btn {
+  text-align: center;
+}
+
+.info__user-btn {
+  background-color: var(--color-black);
+  padding: 3px 15px;
+  border-radius: 5px;
+  color: var(--color-white);
+  font-style: normal;
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 27px;
+}
+
+.bottom_tags{
+    padding: 0 7px;
+}
+
+.title_company{
+    text-align: center;
+}
