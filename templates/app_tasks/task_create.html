@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/tasks_create/style.css' %}">
+<title>Stud.Task -- {{request.user.username}} -- create task</title>
+{% endblock %}
+
+{% block main %}
+<main class="main">
+    <div class="container">
+        <div class="main_container">
+            <div class="main_content content">
+                <form class="content__form form" method="post" enctype="multipart/form-data">{% csrf_token %}
+                    <div class="form__title flex">
+                        <p class="pretext">
+                            Заголовок:
+                        </p>
+                        <textarea name="title"></textarea>
+                    </div>
+                    <div class="form__task flex">
+                        <p class="pretext">
+                            Задание
+                        </p>
+                        <textarea name="content"></textarea>
+                    </div>
+                    <div class="form__tags tags flex">
+                        <p class="pretext">
+                            Выберите тег:
+                        </p>
+                        <div class="tags__content">
+                              {{ form.tags }}
+                        </div>
+                    </div>
+                    <div class="form__files flex">
+                        <p class="pretext">
+                            Файл:
+                        </p>
+                        <div class="">
+                            {{ form.files }}
+                        </div>
+                    </div>
+                    <a class="form__link">
+                        <button class="form__button btn-reset">
+                            Выложить
+                        </button>
+                    </a>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</main>
+
+{% endblock %}

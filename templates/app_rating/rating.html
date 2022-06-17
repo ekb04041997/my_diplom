@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/rating/style.css' %}">
+    <title>Stud.Task Rating</title>
+{% endblock %}
+
+{% block main %}
+    <main class="main">
+        <div class="container">
+            <div class="main__container flex">
+
+                <div class="main__tags tags">
+                    <h2 class="tags__title title">
+                        Теги
+                    </h2>
+                    <div class="tags__all">
+                        {% for i_tag in tags %}
+                        <a href="{% url 'category_detail' i_tag.id %}">{{ i_tag }}</a>
+                        {% endfor %}
+                    </div>
+                    <div class="tags__btn">
+                        <a class="button" href="{% url 'rating' %}">Сбросить тег</a>
+                    </div>
+                </div>
+
+                <div class="main__rating tasks">
+                    <div class="rating__title title">
+                        {% if tag %}
+                        Рейтинг по '{{ tag|upper }}'
+                        {% else %}
+                        Рейтинг
+                        {% endif %}
+                    </div>
+
+                    {% if page_obj %}
+
+                        <div class="rating__block">
+                            <div class="content-rating__descr descr flex">
+                                <div class="descr__place">
+                                    Место
+                                </div>
+                                <div class="descr__rating">
+                                    Баллы
+                                </div>
+                                <div class="descr__count_task">
+                                    Кол-во заданий
+                                </div>
+                                <div class="descr__middle_point">
+                                    Средний балл
+                                </div>
+                                <div class="descr__user">
+                                    Имя Фамилия
+                                </div>
+                            </div>
+
+                            {% for user in page_obj %}
+                            {% if not tag %}
+                            <div class="user flex">
+                                <div class="rating__block-place">
+                                    {{ user.place }}
+                                </div>
+                                <div class="rating__block-rating">
+                                    {{ user.rating }}
+                                </div>
+                                <div class="rating__block-count_task">
+                                    {{ user.count_task }}
+                                </div>
+                                <div class="rating__block-middle_point">
+                                    {{ user.middle_point }}
+                                </div>
+                                <div class="rating__block-user">
+                                    <a href="{% url 'contractor-detail' user.user.id %} ">{{ user.user.first_name }} {{ user.user.last_name }}</a>
+                                </div>
+                            </div>
+                            {% else %}
+                            <div class="user flex">
+                                <div class="rating__block-place">
+                                    {{ user.place }}
+                                </div>
+                                <div class="rating__block-rating">
+                                    {{ user.all_point }}
+                                </div>
+                                <div class="rating__block-count_task">
+                                    {{ user.count_task }}
+                                </div>
+                                <div class="rating__block-middle_point">
+                                    {{ user.middle_point }}
+                                </div>
+                                <div class="rating__block-user">
+                                    <a href="{% url 'contractor-detail' user.user.id %} ">{{ user.user.first_name }} {{ user.user.last_name }}</a>
+                                </div>
+                            </div>
+                            {% endif %}
+                            {% endfor %}
+                        </div>
+
+                        {% include 'navigation.html' %}
+                    {% endif %}
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+{% endblock %}

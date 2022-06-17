@@ -1,0 +1,152 @@
+/* main */
+
+.main {
+  margin-bottom: 50px;
+}
+
+.main__content-info {
+  align-items: flex-start;
+  margin-bottom: 50px;
+}
+
+
+.info__user {
+  background-color: var(--color-white);
+  padding: 15px;
+  border-radius: 15px;
+  width: 30%;
+  margin-right: 50px;
+}
+.info__user p:last-child {
+  margin: 0;
+}
+
+.user__title {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 22px;
+}
+
+.user-content p {
+  margin: 0;
+  margin-top: 15px;
+}
+
+.user:not(:last-child) {
+  margin-bottom: 30px;
+}
+
+.content__photo {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.content__photo .photo {
+  margin: 0;
+}
+
+.content__photo .username {
+  margin: 0;
+}
+
+.content__photo .photo img {
+  border-radius: 5px;
+}
+
+.info__ptofile {
+  background-color: var(--color-white);
+  padding: 15px;
+  border-radius: 15px;
+  width: 45%;
+}
+
+.left-column {
+  width: 40%;
+}
+
+.right-column {
+  width: 60%;
+}
+
+.inf__btn {
+  text-align: center;
+}
+
+.info__user-btn {
+  background-color: var(--color-black);
+  padding: 3px 15px;
+  border-radius: 5px;
+  color: var(--color-white);
+  font-style: normal;
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 27px;
+}
+
+.main__content-tasks {
+  background-color: var(--color-gray);
+  border-radius: 15px;
+  padding: 15px;
+}
+
+.tasks__title {
+  text-align: center;
+  margin: 0;
+  margin-bottom: 25px;
+}
+
+.tasks__block-tegs {
+  width: 20%;
+}
+
+.tasks__block-task {
+  width: 70%;
+}
+
+.tasks__block-point {
+  width: 10%;
+  text-align: center;
+}
+
+.tasks__text {
+  padding: 0 15px;
+}
+
+.tasks__text .descr {
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.tasks__block {
+  align-items: center;
+  border-radius: 5px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 100%;
+  background-color: var(--color-white);
+  margin-bottom: 15px;
+  padding: 5px;
+}
+
+.tasks__block-left {
+  width: 20%;
+  padding-left: 7px;
+  min-height: 40px;
+}
+
+.tasks__block-middle {
+  width: 70%;
+  border-right: 1px solid #333;
+  border-left: 1px solid #333;
+  padding-left: 7px;
+  min-height: 40px;
+}
+
+.tasks__block-right {
+  width: 10%;
+  padding-left: 7px;
+  min-height: 40px;
+}

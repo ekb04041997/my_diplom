@@ -1,0 +1,33 @@
+.tasks__block {
+  align-items: center;
+  border-radius: 5px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 24px;
+  background-color: var(--color-white);
+}
+
+.tasks__block:not(:last-child) {
+  margin-bottom: 15px;
+}
+
+.tasks__block-left {
+  width: 25%;
+  padding-left: 7px;
+  min-height: 40px;
+}
+
+.tasks__block-middle {
+  width: 65%;
+  border-right: 1px solid #333;
+  border-left: 1px solid #333;
+  padding-left: 7px;
+  min-height: 40px;
+}
+
+.tasks__block-right {
+  width: 10%;
+  padding-left: 7px;
+  min-height: 40px;
+}

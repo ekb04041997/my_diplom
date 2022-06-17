@@ -1,0 +1,50 @@
+input {
+    width: 100%;
+    border-radius: 5px;
+    height: 25px;
+    }
+
+.main_container{
+    background-color: var(--color-white);
+    margin: 0 auto;
+    width: 45%;
+    border-radius: 15px;
+    padding: 15px;
+    }
+
+.main_content{
+    background-color: var(--color-gray);
+    border-radius: 5px;
+    padding: 15px;
+    }
+
+.form_help_text{
+    width: 35%;
+    }
+
+.form_filed{
+    width: 65%;
+    }
+
+.form_content{
+    margin-bottom: 20px;
+    }
+
+.btn_info {
+    text-align: center;
+    }
+
+.save__info-btn {
+    background-color: var(--color-black);
+    padding: 3px 15px;
+    border-radius: 5px;
+    color: var(--color-white);
+    font-style: normal;
+    font-weight: bold;
+    font-size: 15px;
+    line-height: 27px;
+    }
+
+.main{
+    margin-bottom: 50px;
+    }

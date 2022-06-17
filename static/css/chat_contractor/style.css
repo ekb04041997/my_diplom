@@ -1,0 +1,151 @@
+/* main */
+
+.main {
+  margin-bottom: 50px;
+  flex-grow: 1;
+}
+
+
+.content__task {
+  height: 680px;
+  overflow-y: scroll;
+  background-color: var(--color-white);
+  width: 35%;
+  border-radius: 15px;
+  padding: 0 15px 151px 15px;
+  margin-right: 20px;
+}
+
+.block__title {
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 15px;
+  position: sticky;
+  top: 0;
+  padding-top: 15px;
+  background-color: var(--color-white);
+}
+
+.block__tasks {
+  background-color: var(--color-light-gray);
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.tasks__block-task {
+  font-size: 12px;
+}
+
+.block__tasks:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.block__tasks-active {
+  background-color: var(--color-gray);
+}
+
+.content__chat {
+  width: 63%;
+  background-color: var(--color-white);
+  border-radius: 15px;
+  padding: 15px;
+  display: none;
+}
+
+.block__chat {
+  height: 650px;
+}
+
+.chat__main-info {
+  height: 38%;
+  background-color: var(--color-light-gray);
+  overflow-y: scroll;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.info-content__main {
+  justify-content: space-between;
+}
+
+.info-content__task {
+  text-indent: 20px;
+  margin-bottom: 20px;
+}
+
+.message__form {
+  align-items: center;
+}
+
+.chat__message {
+  height: 50%;
+  background-color: var(--color-light-gray);
+  margin-bottom: 10px;
+  padding: 10px;
+  overflow-y: scroll;
+  flex-direction: column;
+}
+
+.message__content-two {
+  justify-content: flex-end;
+}
+
+.message__contractor {
+  padding: 5px;
+  border-radius: 5px;
+  background-color: var(--color-white);
+  max-width: 75%;
+}
+
+.message__time {
+  text-align: right;
+  font-size: 12px;
+}
+
+.message__customer {
+  max-width: 75%;
+  text-align: left;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: var(--color-white);
+  background-color: var(--color-white);
+}
+
+
+.message:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.form__send-message {
+  width: 75%;
+  border: 1px solid var(--color-black);
+  overflow-y: scroll;
+  resize:none;
+  font-size: 15px;
+  margin-right: 2%;
+  border-radius: 5px;
+}
+
+.form__send-btn {
+  background-color: var(--color-black);
+  padding: 3px 15px;
+  border-radius: 5px;
+  color: var(--color-white);
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 27px;
+}
+
+.block__users-active {
+  background-color: var(--color-white);
+}
+
+.content__user-active {
+  display: block;
+}
+
+.message__customer_content p{
+    margin: 0;
+}

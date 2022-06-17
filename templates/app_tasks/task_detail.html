@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/tasks/task_detail.css' %}">
+    <title>Stud.Task {{ object.title|truncatechars:15}} -- detail task</title>
+{% endblock %}
+
+{% block main %}
+    <main class="main">
+        <div class="container">
+            <div class="main__container content">
+                <div class="content__task task">
+                    <div class="task__header flex">
+                        <div class="header__date">
+                            {{ object.pub_date|date:"d/m/y" }}
+                        </div>
+                        <div class="header_company">
+                            <b>{{ object.user.profilecustomermodel.company }}</b>
+                        </div>
+                    </div>
+                    <div class="task__tag">
+                        Тег: {{ object.tags }}
+                    </div>
+                    <div class="task__title">
+                        <h2>{{ object.title }}</h2>
+                    </div>
+                    <div class="task__content">
+                        {{ object.content }}
+                    </div>
+                    <div class="task__file">
+                        {% if object.files %}
+                            <a href="{{ object.files.url }}" download >
+                                <img src="{% static 'img/download.svg' %}" alt="download" width="20px" height="20px"> <b>Скачать файл</b></a >
+                        {% endif %}
+                    </div>
+                    {% if request.user.profilecontractormodel %}
+                    <div class="task__button">
+                        <a href="{% url 'add_contractor_task' request.user.id object.id %}" class="task__btn">Взять задание</a>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock %}

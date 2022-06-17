@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/chat_contractor/style.css' %}">
+    <script src="{% static 'js/chat_contractor/script.js' %}" ></script>
+    <title>Stud.Task Chat</title>
+{% endblock %}
+
+{% block main %}
+<main class="main">
+    <div class="container flex">
+        <div class="content__task block">
+            <h3 class="block__title title">
+              Задания
+            </h3>
+
+            {% for task in tasks %}
+                <div class="block__tasks tasks" data-path="{{ task.task.id }}">
+                  <div class="tasks__block-task">
+                    {{ task.task }}
+                  </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        {% for task in tasks %}
+            <div class="content__chat" data-target="{{ task.task.id }}">
+              <div class="block__chat chat">
+                  <div class="chat__main-info info-content">
+                      <div class="info-content__main flex">
+                          <div class="info-content__tegs">
+                              {{ task.task.tags }}
+                          </div>
+                          <div class="info-content__company">
+                              <b>{{task.task.user.profilecustomermodel.company}}</b>
+                          </div>
+                      </div>
+                      <div class="info-content__title">
+                          <h2>{{ task.task.title }}</h2>
+                      </div>
+                      <div class="info-content__task">
+                          {{ task.task.content }}
+                      </div>
+                      <div class="info-content__file">
+                          {% if task.task.files %}
+                            <a href="{{ task.task.files.url }}" download >
+                                <img src="{% static 'img/download.svg' %}" alt="download" width="20px" height="20px"> <b>Скачать файл</b></a >
+                        {% endif %}
+                      </div>
+                  </div>
+                  <div class="chat__message flex">
+
+                          {% for comment in task.comments.all %}
+                              {% if comment.user.profilecustomermodel %}
+                                <div class="message__content message flex">
+                                  <div class="message__contractor">
+                                      {{ comment.comment }}
+                                        {% if comment.file %}
+                                            <a href="{{ object.files.url }}" download target="_blank">
+                                                <img src="{% static 'img/download.svg' %}" alt="download" width="10px" height="10px"> <b>Скачать файл</b></a >
+                                        {% endif %}
+                                      <div class="message__time">
+                                          {{ comment.pub_date|date:"H:i" }}
+                                      </div>
+                                    </div>
+                                  </div>
+                              {% else %}
+                                <div class="message__content-two message flex">
+                                  <div class="message__customer flex">
+                                      <div class="message__customer_content">
+                                       <p>{{ comment.comment }}</p>
+                                      <p>{% if comment.file %}
+                                            <a href="{{ comment.file.url }}" download target="_blank">
+                                                <img src="{% static 'img/download.svg' %}" alt="download" width="10px" height="10px"> <b>Скачать файл</b></a >
+                                        {% endif %}</p></div>
+                                      <div class="message__time">
+                                          {{ comment.pub_date|date:"H:i" }}
+                                      </div>
+                                  </div>
+                                </div>
+                              {% endif %}
+                          {% endfor %}
+
+                  </div>
+                  <div class="content__post message">
+                      <form method="post" class="message__form form" enctype='multipart/form-data'> {% csrf_token %}
+                          <div class="flex">
+                              {% for form in comment_form.comment %}
+                                  <textarea class="form__send-message" name="comment"></textarea>
+                              {% endfor %}
+                              <input type="hidden" value="{{ task.id }}" name="task">
+
+                              <button class="form__send-btn btn-reset">Отправить</button>
+                          </div>
+
+                          {{ comment_form.file }}
+                      </form>
+                  </div>
+              </div>
+                </div>
+        {% endfor %}
+    </div>
+</main>
+{% endblock %}

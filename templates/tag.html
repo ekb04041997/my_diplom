@@ -1,0 +1,13 @@
+<div class="main__tags tags">
+    <h2 class="tags__title title">
+        Теги
+    </h2>
+    <div class="tags__all">
+        {% for i_tag in tags %}
+        <a href="{% url 'tag_detail' i_tag.id %}">{{ i_tag }}</a>
+        {% endfor %}
+    </div>
+    <div class="tags__btn">
+        <a class="button" href="{% url 'tasks' %}">Сбросить тег</a>
+    </div>
+</div>

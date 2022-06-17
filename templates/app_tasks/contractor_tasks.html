@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/tasks/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/tasks/contractor.css' %}">
+    <title>Stud.Task Tasks</title>
+{% endblock %}
+
+{% block main %}
+<main class="main">
+    <div class="container">
+
+      <div class="main__container flex">
+
+        <div class="main__tags tags">
+          <h2 class="tags__title title">
+            Теги
+          </h2>
+          <div class="tags__all">
+            {% for i_tag in tags %}
+              <a href="{% url 'contractor_tag_detail' user_id=user_info.id pk=i_tag.id %}">{{ i_tag }}</a>
+            {% endfor %}
+          </div>
+          <div class="tags__btn">
+            <a class="button" href="{% url 'contractor_tasks' user_id=user_info.id %}">Сбросить тег</a>
+          </div>
+        </div>
+        <div class="main__tasks tasks">
+          <div class="tasks__title title">
+            {% if tag %}
+                Задания по '{{ tag|upper }}'
+            {% else %}
+                Все задания
+            {% endif %}
+          </div>
+          {% if not page_obj %}
+            <div class="tasks__block">Заданий с таким тегом еще нет</div>
+          {% else %}
+            {% for task in page_obj %}
+            <div class="tasks__block">
+              <div class=" flex">
+                <div class="tasks__block-left">
+                  <div class="bottom_tags">
+                    Тег: {{ task.task.tags }}
+                  </div>
+                </div>
+                <div class="tasks__block-middle">
+                  <a href="{% url 'task_detail' pk=task.id %}">{{ task.task.title }}</a>
+                </div>
+                <div class="tasks__block-right">
+                  Балл: {{ task.point }}
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+            {% include 'navigation.html' %}
+          {% endif %}
+
+          </div>
+        </div>
+      </div>
+  </main>
+{% endblock %}
